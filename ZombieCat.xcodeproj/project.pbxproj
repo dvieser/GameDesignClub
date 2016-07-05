@@ -13,9 +13,9 @@
 		D30A18361D2C3A0E0063F4E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D30A18341D2C3A0E0063F4E8 /* Main.storyboard */; };
 		D30A18381D2C3A0E0063F4E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30A18371D2C3A0E0063F4E8 /* Assets.xcassets */; };
 		D30A183B1D2C3A0E0063F4E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D30A18391D2C3A0E0063F4E8 /* LaunchScreen.storyboard */; };
-		D30A18471D2C3A620063F4E8 /* GrenadeSparkTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A18421D2C3A620063F4E8 /* GrenadeSparkTrail.sks */; };
+		D30A18471D2C3A620063F4E8 /* BeakerSparkTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A18421D2C3A620063F4E8 /* BeakerSparkTrail.sks */; };
 		D30A18481D2C3A620063F4E8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D30A18431D2C3A620063F4E8 /* spark.png */; };
-		D30A18491D2C3A620063F4E8 /* GrenadeSmoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A18441D2C3A620063F4E8 /* GrenadeSmoke.sks */; };
+		D30A18491D2C3A620063F4E8 /* BeakerSmoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A18441D2C3A620063F4E8 /* BeakerSmoke.sks */; };
 		D30A184A1D2C3A620063F4E8 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A18451D2C3A620063F4E8 /* GameOverScene.sks */; };
 		D30A184B1D2C3A620063F4E8 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30A18461D2C3A620063F4E8 /* GameOverScene.swift */; };
 		D30A184D1D2C3ADC0063F4E8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A184C1D2C3ADC0063F4E8 /* GameScene.sks */; };
@@ -30,9 +30,9 @@
 		D30A18371D2C3A0E0063F4E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D30A183A1D2C3A0E0063F4E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D30A183C1D2C3A0E0063F4E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D30A18421D2C3A620063F4E8 /* GrenadeSparkTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GrenadeSparkTrail.sks; sourceTree = "<group>"; };
+		D30A18421D2C3A620063F4E8 /* BeakerSparkTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BeakerSparkTrail.sks; sourceTree = "<group>"; };
 		D30A18431D2C3A620063F4E8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
-		D30A18441D2C3A620063F4E8 /* GrenadeSmoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GrenadeSmoke.sks; sourceTree = "<group>"; };
+		D30A18441D2C3A620063F4E8 /* BeakerSmoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BeakerSmoke.sks; sourceTree = "<group>"; };
 		D30A18451D2C3A620063F4E8 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 		D30A18461D2C3A620063F4E8 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		D30A184C1D2C3ADC0063F4E8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -71,9 +71,9 @@
 				D30A182C1D2C3A0E0063F4E8 /* AppDelegate.swift */,
 				D30A184C1D2C3ADC0063F4E8 /* GameScene.sks */,
 				D30A18301D2C3A0E0063F4E8 /* GameScene.swift */,
-				D30A18421D2C3A620063F4E8 /* GrenadeSparkTrail.sks */,
+				D30A18421D2C3A620063F4E8 /* BeakerSparkTrail.sks */,
 				D30A18431D2C3A620063F4E8 /* spark.png */,
-				D30A18441D2C3A620063F4E8 /* GrenadeSmoke.sks */,
+				D30A18441D2C3A620063F4E8 /* BeakerSmoke.sks */,
 				D30A18451D2C3A620063F4E8 /* GameOverScene.sks */,
 				D30A18461D2C3A620063F4E8 /* GameOverScene.swift */,
 				D30A18321D2C3A0E0063F4E8 /* GameViewController.swift */,
@@ -143,9 +143,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D30A18491D2C3A620063F4E8 /* GrenadeSmoke.sks in Resources */,
+				D30A18491D2C3A620063F4E8 /* BeakerSmoke.sks in Resources */,
 				D30A18481D2C3A620063F4E8 /* spark.png in Resources */,
-				D30A18471D2C3A620063F4E8 /* GrenadeSparkTrail.sks in Resources */,
+				D30A18471D2C3A620063F4E8 /* BeakerSparkTrail.sks in Resources */,
 				D30A184A1D2C3A620063F4E8 /* GameOverScene.sks in Resources */,
 				D30A184D1D2C3ADC0063F4E8 /* GameScene.sks in Resources */,
 				D30A183B1D2C3A0E0063F4E8 /* LaunchScreen.storyboard in Resources */,
@@ -316,6 +316,7 @@
 				D30A18411D2C3A0E0063F4E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
