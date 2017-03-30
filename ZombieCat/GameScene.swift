@@ -38,7 +38,9 @@ class GameScene: SKScene {
     var explosionTextures = [SKTexture]()
     let sleepyTexture = SKTexture(imageNamed: "cat_sleepy")
     let scaredTexture = SKTexture(imageNamed: "cat_awake")
-    
+    var monsters: [SKSpriteNode] = []
+    var player: SKSpriteNode?
+
     var previousThrowPower = 100.0
     var previousThrowAngle = 0.0
     var currentPower = 100.0
@@ -54,13 +56,33 @@ class GameScene: SKScene {
         for i in 0...8 {
             explosionTextures.append(SKTexture(imageNamed: "regularExplosion0\(i)"))
         }
+        
+        for child in self.children {
+            if child.name == "monster" {
+                if let child = child as? SKSpriteNode {
+                    monsters.append(child)
+//                    child.physicsBody?.allowsRotation = false
+//                    child.physicsBody?.mass = 100.0
+                }
+            }
+        }
+        
+        player = childNode(withName: "player") as? SKSpriteNode
+        
         physicsWorld.contactDelegate = self
+        
+        physicsWorld.gravity = CGVector(dx: 0, dy: -50)
         
         powerMeterNode = childNode(withName: "powerMeter") as? SKSpriteNode
         powerMeterFilledNode = powerMeterNode?.childNode(withName: "powerMeterFilled") as? SKSpriteNode
         
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         view.addGestureRecognizer(panRecognizer)
+    }
+    
+    override func didSimulatePhysics() {
+        super.didSimulatePhysics()
+//        updateMonsters()
     }
 
     func newProjectile () {
@@ -69,7 +91,7 @@ class GameScene: SKScene {
         beaker.zPosition = 5
         beaker.position = CGPoint(x: 120, y: 625)
         let beakerBody = SKPhysicsBody(rectangleOf: CGSize(width: 40, height: 40))
-        beakerBody.mass = 1.0
+        beakerBody.mass = 0.5
         beakerBody.categoryBitMask = PhysicsType.beaker
         beakerBody.collisionBitMask = PhysicsType.wall | PhysicsType.cat | PhysicsType.zombieCat
         beaker.physicsBody = beakerBody
@@ -184,6 +206,14 @@ class GameScene: SKScene {
             }
         }
     }
+    
+//    func updateMonsters() {
+//        for monster in monsters {
+//            let velocotyX = player?.position.x ?? 0 < monster.position.x ? -75 : 75
+//            let newVelocity = CGVector(dx: velocotyX, dy: 0)
+//            monster.physicsBody!.velocity = newVelocity;
+//        }
+//    }
     
     func updatePowerMeter(translation: CGPoint) {
         // 1
