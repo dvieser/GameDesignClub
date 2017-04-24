@@ -115,8 +115,12 @@ class GameScene: SKScene {
                         beaker.physicsBody?.applyAngularImpulse(0.1125)
                         self.beakerReady = false
                     }
+                    // Change the zombies swing based on the vector
+                    // sum the vector and cap at a minimum of 100 and max of 5000, then normalize
                     let totalStrength = (max(100, min(5000.0, fabs(strength.dx) + fabs(strength.dy))) / 5000.0)
+                    // invert strength and stretch time to max of current wait time (fuse + reset)
                     let time = max(0.1, 1.0 - Double(totalStrength)) * 1.3 // <- 1.3 = total time of fuse and reset
+                    // only make swing backwards if move down and left
                     let direction:CGFloat = strength.dx > 0.0 && strength.dy > 0.0 ? -6.28318 : 6.218318
                     let followTrough = SKAction.rotate(byAngle: direction, duration: time)
                     
