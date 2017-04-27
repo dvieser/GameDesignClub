@@ -38,7 +38,9 @@ class GameScene: SKScene {
     var explosionTextures = [SKTexture]()
     let sleepyTexture = SKTexture(imageNamed: "cat_sleepy")
     let scaredTexture = SKTexture(imageNamed: "cat_awake")
-    
+    var monsters: [SKSpriteNode] = []
+    var player: SKSpriteNode?
+
     var previousThrowPower = 100.0
     var previousThrowAngle = 0.0
     var currentPower = 100.0
@@ -46,21 +48,45 @@ class GameScene: SKScene {
     var powerMeterNode: SKSpriteNode? = nil
     var powerMeterFilledNode: SKSpriteNode? = nil
     
-    var beakersLeft = 3
+    var beakersLeft = 300
     var catsRemaining = 2
+    
+    private var panStartLocation:CGPoint = CGPoint.zero
     
     override func didMove(to view: SKView) {
         newProjectile()
         for i in 0...8 {
             explosionTextures.append(SKTexture(imageNamed: "regularExplosion0\(i)"))
         }
+        
+        for child in self.children {
+            if child.name == "monster" {
+                if let child = child as? SKSpriteNode {
+                    monsters.append(child)
+//                    child.physicsBody?.allowsRotation = false
+//                    child.physicsBody?.mass = 100.0
+                }
+            }
+        }
+        
+        player = childNode(withName: "player") as? SKSpriteNode
+        
         physicsWorld.contactDelegate = self
+        
+        physicsWorld.gravity = CGVector(dx: 0, dy: -50)
         
         powerMeterNode = childNode(withName: "powerMeter") as? SKSpriteNode
         powerMeterFilledNode = powerMeterNode?.childNode(withName: "powerMeterFilled") as? SKSpriteNode
         
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         view.addGestureRecognizer(panRecognizer)
+        
+        self.powerMeterNode?.isHidden = true
+    }
+    
+    override func didSimulatePhysics() {
+        super.didSimulatePhysics()
+//        updateMonsters()
     }
 
     func newProjectile () {
@@ -69,7 +95,7 @@ class GameScene: SKScene {
         beaker.zPosition = 5
         beaker.position = CGPoint(x: 120, y: 625)
         let beakerBody = SKPhysicsBody(rectangleOf: CGSize(width: 40, height: 40))
-        beakerBody.mass = 1.0
+        beakerBody.mass = 0.5
         beakerBody.categoryBitMask = PhysicsType.beaker
         beakerBody.collisionBitMask = PhysicsType.wall | PhysicsType.cat | PhysicsType.zombieCat
         beaker.physicsBody = beakerBody
@@ -111,7 +137,14 @@ class GameScene: SKScene {
                         beaker.physicsBody?.applyAngularImpulse(0.1125)
                         self.beakerReady = false
                     }
-                    let followTrough = SKAction.rotate(byAngle: -6*3.14, duration: 2.0)
+                    // Change the zombies swing based on the vector
+                    // sum the vector and cap at a minimum of 100 and max of 5000, then normalize
+                    let totalStrength = (max(100, min(5000.0, fabs(strength.dx) + fabs(strength.dy))) / 5000.0)
+                    // invert strength and stretch time to max of current wait time (fuse + reset)
+                    let time = max(0.1, 1.0 - Double(totalStrength)) * 1.3 // <- 1.3 = total time of fuse and reset
+                    // only make swing backwards if move down and left
+                    let direction:CGFloat = strength.dx > 0.0 && strength.dy > 0.0 ? -6.28318 : 6.218318
+                    let followTrough = SKAction.rotate(byAngle: direction, duration: time)
                     
                     arm.run(SKAction.sequence([toss, followTrough]))
                 }
@@ -120,7 +153,7 @@ class GameScene: SKScene {
                     let explosionRadius = beaker.childNode(withName: "explosionRadius") {
                     
                     // 1
-                    let fuse = SKAction.wait(forDuration: 4.0)
+                    let fuse = SKAction.wait(forDuration: 1.2)
                     let expandCloud = SKAction.scale(to: 3.5, duration: 0.25)
                     let contractCloud = SKAction.scale(to: 0, duration: 0.25)
                     previousThrowPower = currentPower
@@ -167,7 +200,7 @@ class GameScene: SKScene {
                     let boom = SKAction.sequence([fuse, animateCloud, removeBeaker])
                     
                     // 3
-                    let respawnBeakerDelay = SKAction.wait(forDuration: 1.0)
+                    let respawnBeakerDelay = SKAction.wait(forDuration: 0.1)
                     let respawnBeaker = SKAction.run() {
                         self.newProjectile()
                     }
@@ -184,6 +217,14 @@ class GameScene: SKScene {
             }
         }
     }
+    
+//    func updateMonsters() {
+//        for monster in monsters {
+//            let velocotyX = player?.position.x ?? 0 < monster.position.x ? -75 : 75
+//            let newVelocity = CGVector(dx: velocotyX, dy: 0)
+//            monster.physicsBody!.velocity = newVelocity;
+//        }
+//    }
     
     func updatePowerMeter(translation: CGPoint) {
         // 1
@@ -243,23 +284,29 @@ class GameScene: SKScene {
     
     func handlePan(recognizer:UIPanGestureRecognizer) {
         if recognizer.state == UIGestureRecognizerState.began {
-            // do any initialization here
+            self.panStartLocation = recognizer.location(in: self.view)
         }
         
         if recognizer.state == UIGestureRecognizerState.changed {
             // the position of the drag has moved
-            let translation = recognizer.translation(in: self.view)
-            updatePowerMeter(translation: translation)
+//            let translation = recognizer.translation(in: self.view)
+//            print(translation)
+//            updatePowerMeter(translation: translation)
         }
         
         if recognizer.state == UIGestureRecognizerState.ended {
-            // finish up
-            let maxPowerImpulse = 2500.0
-            let currentImpulse = maxPowerImpulse * currentPower/100.0
             
-            let strength = CGVector( dx: currentImpulse * cos(currentAngle),
-                                     dy: currentImpulse * sin(currentAngle) )
-            tossBeaker(strength: strength)
+            let current = recognizer.location(in: self.view)
+            let velocity = recognizer.velocity(in: self.view)
+            
+            var vectorX = current.x - self.panStartLocation.x
+            var vectorY = current.y - self.panStartLocation.y
+            let normal = max(fabs(vectorX), fabs(vectorY))
+            vectorX = fabs(vectorX / normal)
+            vectorY = fabs(vectorY / normal)
+
+            let power = CGVector(dx: vectorX * velocity.x, dy: vectorY * -velocity.y)
+            tossBeaker(strength: power)
         }
     }
 }
