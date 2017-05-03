@@ -21,6 +21,7 @@
  */
 
 import SpriteKit
+import CoreMotion
 
 struct PhysicsType  {
   static let none            :UInt32  =   0
@@ -33,6 +34,9 @@ struct PhysicsType  {
 }
 
 class GameScene: SKScene {
+    
+    let motionManager = CMMotionManager()
+    
     var pinBeakerToZombieArm: SKPhysicsJointFixed?
     var beakerReady = false
     var explosionTextures = [SKTexture]()
@@ -40,6 +44,7 @@ class GameScene: SKScene {
     let scaredTexture = SKTexture(imageNamed: "cat_awake")
     var monsters: [SKSpriteNode] = []
     var player: SKSpriteNode?
+    var arm: SKSpriteNode?
 
     var previousThrowPower = 100.0
     var previousThrowAngle = 0.0
@@ -54,6 +59,7 @@ class GameScene: SKScene {
     private var panStartLocation:CGPoint = CGPoint.zero
     
     override func didMove(to view: SKView) {
+        motionManager.startAccelerometerUpdates()
         newProjectile()
         for i in 0...8 {
             explosionTextures.append(SKTexture(imageNamed: "regularExplosion0\(i)"))
@@ -70,6 +76,12 @@ class GameScene: SKScene {
         }
         
         player = childNode(withName: "player") as? SKSpriteNode
+        player?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 400))
+        player?.physicsBody?.isDynamic = true
+        player?.physicsBody?.affectedByGravity = false
+        player?.physicsBody?.allowsRotation = false
+        player?.physicsBody?.mass = 1.5
+        player?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
         
         physicsWorld.contactDelegate = self
         
@@ -101,11 +113,12 @@ class GameScene: SKScene {
         beaker.physicsBody = beakerBody
         addChild(beaker)
         
-        if let armBody = childNode(withName: "player")?.childNode(withName: "arm")?.physicsBody {
-            pinBeakerToZombieArm = SKPhysicsJointFixed.joint(withBodyA: armBody, bodyB: beakerBody, anchor: CGPoint.zero)
-            physicsWorld.add(pinBeakerToZombieArm!)
-            beakerReady = true
-        }
+        //TODO: Add Beaker to Player Movement
+//        if let armBody = childNode(withName: "player")?.childNode(withName: "arm")?.physicsBody {
+//            pinBeakerToZombieArm = SKPhysicsJointFixed.joint(withBodyA: armBody, bodyB: beakerBody, anchor: CGPoint.zero)
+//            physicsWorld.add(pinBeakerToZombieArm!)
+//            beakerReady = true
+//        }
         
         let cloud = SKSpriteNode(imageNamed: "regularExplosion00")
         cloud.name = "cloud"
@@ -307,6 +320,28 @@ class GameScene: SKScene {
 
             let power = CGVector(dx: vectorX * velocity.x, dy: vectorY * -velocity.y)
             tossBeaker(strength: power)
+        }
+    }
+    
+    // Update
+    
+    override func update(_ currentTime: TimeInterval) {
+        processUserMotion(forUpdate: currentTime)
+    }
+    
+    func processUserMotion(forUpdate currentTime: CFTimeInterval) {
+        if let player = childNode(withName: "player") as? SKSpriteNode {
+            if let data = motionManager.accelerometerData {
+                if data.acceleration.y < -0.2  {
+                    print("LEFT: \(data.acceleration.y)")
+                    player.physicsBody?.applyForce(CGVector(dx: -1500, dy: 0))
+                } else if data.acceleration.y > 0.2 {
+                    print("RIGHT: \(data.acceleration.y)")
+                    player.physicsBody?.applyForce(CGVector(dx: 1500, dy: 0))
+                } else {
+                    player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                }
+            }
         }
     }
 }
