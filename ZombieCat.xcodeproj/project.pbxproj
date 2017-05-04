@@ -123,7 +123,7 @@
 				TargetAttributes = {
 					D30A18281D2C3A0E0063F4E8 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 9F9V5ZSQAQ;
+						DevelopmentTeam = 7KXC9KWB6D;
 						DevelopmentTeamName = "Brian Broom";
 						LastSwiftMigration = 0800;
 					};
@@ -290,11 +290,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9F9V5ZSQAQ;
+				DEVELOPMENT_TEAM = 7KXC9KWB6D;
 				INFOPLIST_FILE = ZombieCat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.ZombieCat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hayscisd.ZombieCat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -304,11 +304,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9F9V5ZSQAQ;
+				DEVELOPMENT_TEAM = 7KXC9KWB6D;
 				INFOPLIST_FILE = ZombieCat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.ZombieCat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hayscisd.ZombieCat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;

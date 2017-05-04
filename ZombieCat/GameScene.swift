@@ -60,6 +60,7 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         motionManager.startAccelerometerUpdates()
+        
         newProjectile()
         for i in 0...8 {
             explosionTextures.append(SKTexture(imageNamed: "regularExplosion0\(i)"))
@@ -94,6 +95,9 @@ class GameScene: SKScene {
         view.addGestureRecognizer(panRecognizer)
         
         self.powerMeterNode?.isHidden = true
+        
+        camera = player?.childNode(withName: "playerCameraNode") as! SKCameraNode
+
     }
     
     override func didSimulatePhysics() {
@@ -114,11 +118,11 @@ class GameScene: SKScene {
         addChild(beaker)
         
         //TODO: Add Beaker to Player Movement
-//        if let armBody = childNode(withName: "player")?.childNode(withName: "arm")?.physicsBody {
+        if let armBody = childNode(withName: "player")?.childNode(withName: "arm")?.physicsBody {
 //            pinBeakerToZombieArm = SKPhysicsJointFixed.joint(withBodyA: armBody, bodyB: beakerBody, anchor: CGPoint.zero)
 //            physicsWorld.add(pinBeakerToZombieArm!)
 //            beakerReady = true
-//        }
+        }
         
         let cloud = SKSpriteNode(imageNamed: "regularExplosion00")
         cloud.name = "cloud"
