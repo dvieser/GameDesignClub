@@ -63,9 +63,9 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         motionManager.startAccelerometerUpdates()
         
-        backgroundMusic = SKAudioNode(fileNamed: "background.wav")
-        backgroundMusic?.autoplayLooped = true
-        self.addChild(backgroundMusic!)
+//        backgroundMusic = SKAudioNode(fileNamed: "background.wav")
+//        backgroundMusic?.autoplayLooped = true
+//        self.addChild(backgroundMusic!)
 
         
         for child in self.children {
@@ -79,9 +79,9 @@ class GameScene: SKScene {
         }
         
         player = childNode(withName: "player") as? SKSpriteNode
-        player?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 400))
+//        player?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 400))
         player?.physicsBody?.isDynamic = true
-        player?.physicsBody?.affectedByGravity = true
+        player?.physicsBody?.affectedByGravity = false
         player?.physicsBody?.allowsRotation = false
         player?.physicsBody?.mass = 1.0
         player?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
@@ -112,7 +112,7 @@ class GameScene: SKScene {
     func newProjectile () {
         let randomIndex = Int(arc4random_uniform(UInt32(throwables.count)))
         let image = throwables[randomIndex]
-        let beaker = SKSpriteNode(imageNamed: "apple")
+        let beaker = SKSpriteNode(imageNamed: "tomato")
         beaker.size = CGSize(width: 40, height: 40)
         
         beaker.name = "beaker"
@@ -121,8 +121,11 @@ class GameScene: SKScene {
         beaker.zRotation = arm?.zRotation ?? 0.0
         beaker.position = (self.player?.convert(CGPoint(x: (self.arm?.position.x ?? 0.0) - 120.0, y: (self.arm?.position.y ?? 0) + 160.0), to: self.scene!)) ?? CGPoint.zero  //CGPoint(x: 0.0, y: 200)
         beakerBody.mass = 0.0
-        beakerBody.affectedByGravity = false
+        beakerBody.affectedByGravity = true
+        beakerBody.mass = 1.0
         beakerBody.categoryBitMask = PhysicsType.beaker
+        beakerBody.collisionBitMask = PhysicsType.wall | PhysicsType.cat | PhysicsType.zombieCat
+
         beaker.physicsBody = beakerBody
         addChild(beaker)
         
@@ -135,6 +138,8 @@ class GameScene: SKScene {
         
         let cloud = SKSpriteNode(imageNamed: "regularExplosion00")
         cloud.name = "cloud"
+//        cloud.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 0.0, height: 0.0))
+//        cloud.physicsBody?.collisionBitMask = PhysicsType.none
         cloud.setScale(0)
         cloud.zPosition = 1
         beaker.addChild(cloud)
@@ -160,7 +165,6 @@ class GameScene: SKScene {
                 let toss = SKAction.run() {
                     self.physicsWorld.remove(self.pinBeakerToZombieArm!)
                     if let beakerBody = beaker.physicsBody {
-                        beakerBody.collisionBitMask = PhysicsType.wall | PhysicsType.cat | PhysicsType.zombieCat
                         beakerBody.applyImpulse(strength)
                         beakerBody.applyAngularImpulse(0.1125)
                     }
@@ -169,8 +173,8 @@ class GameScene: SKScene {
                 
                 let release = SKAction.run() {
                     if let beakerBody = beaker.physicsBody {
-//                        beakerBody.affectedByGravity = true
-//                        beakerBody.mass = 1.0
+                        beakerBody.affectedByGravity = true
+                        beakerBody.mass = 0.3
                     }
                 }
                 
@@ -183,7 +187,7 @@ class GameScene: SKScene {
                 let direction:CGFloat = strength.dx > 0.0 && strength.dy > 0.0 ? -6.28318 : 6.218318
                 let followTrough = SKAction.rotate(byAngle: direction, duration: time)
                 
-                arm.run(SKAction.sequence([toss, followTrough, release]))
+                arm.run(SKAction.sequence([toss, followTrough]))
             }
             
             if let cloud = beaker.childNode(withName: "cloud"),
