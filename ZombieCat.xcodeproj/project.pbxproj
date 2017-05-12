@@ -19,8 +19,9 @@
 		D30A184A1D2C3A620063F4E8 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A18451D2C3A620063F4E8 /* GameOverScene.sks */; };
 		D30A184B1D2C3A620063F4E8 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30A18461D2C3A620063F4E8 /* GameOverScene.swift */; };
 		D30A184D1D2C3ADC0063F4E8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A184C1D2C3ADC0063F4E8 /* GameScene.sks */; };
-		D30A60A31D4B08920068692E /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = D30A60A11D4B08920068692E /* iTunesArtwork.png */; };
-		D30A60A41D4B08920068692E /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30A60A21D4B08920068692E /* iTunesArtwork@2x.png */; };
+		EE123B311EC61F1500FD9ACE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */; };
+		EE123B321EC61F1500FD9ACE /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE123B301EC61F1500FD9ACE /* iTunesArtwork@2x.png */; };
+		EE123B341EC64FFD00FD9ACE /* background in Resources */ = {isa = PBXBuildFile; fileRef = EE123B331EC64FFD00FD9ACE /* background */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +39,9 @@
 		D30A18451D2C3A620063F4E8 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 		D30A18461D2C3A620063F4E8 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		D30A184C1D2C3ADC0063F4E8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		D30A60A11D4B08920068692E /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
-		D30A60A21D4B08920068692E /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		EE123B301EC61F1500FD9ACE /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		EE123B331EC64FFD00FD9ACE /* background */ = {isa = PBXFileReference; lastKnownFileType = file; path = background; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +83,11 @@
 				D30A18451D2C3A620063F4E8 /* GameOverScene.sks */,
 				D30A18461D2C3A620063F4E8 /* GameOverScene.swift */,
 				D30A18321D2C3A0E0063F4E8 /* GameViewController.swift */,
+				EE123B331EC64FFD00FD9ACE /* background */,
 				D30A18341D2C3A0E0063F4E8 /* Main.storyboard */,
 				D30A18371D2C3A0E0063F4E8 /* Assets.xcassets */,
-				D30A60A11D4B08920068692E /* iTunesArtwork.png */,
-				D30A60A21D4B08920068692E /* iTunesArtwork@2x.png */,
+				EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */,
+				EE123B301EC61F1500FD9ACE /* iTunesArtwork@2x.png */,
 				D30A18391D2C3A0E0063F4E8 /* LaunchScreen.storyboard */,
 				D30A183C1D2C3A0E0063F4E8 /* Info.plist */,
 			);
@@ -118,7 +121,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = raywenderlich.com;
 				TargetAttributes = {
 					D30A18281D2C3A0E0063F4E8 = {
@@ -153,13 +156,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D30A18491D2C3A620063F4E8 /* BeakerSmoke.sks in Resources */,
-				D30A60A41D4B08920068692E /* iTunesArtwork@2x.png in Resources */,
+				EE123B321EC61F1500FD9ACE /* iTunesArtwork@2x.png in Resources */,
 				D30A18481D2C3A620063F4E8 /* spark.png in Resources */,
 				D30A18471D2C3A620063F4E8 /* BeakerSparkTrail.sks in Resources */,
 				D30A184A1D2C3A620063F4E8 /* GameOverScene.sks in Resources */,
 				D30A184D1D2C3ADC0063F4E8 /* GameScene.sks in Resources */,
 				D30A183B1D2C3A0E0063F4E8 /* LaunchScreen.storyboard in Resources */,
-				D30A60A31D4B08920068692E /* iTunesArtwork.png in Resources */,
+				EE123B341EC64FFD00FD9ACE /* background in Resources */,
+				EE123B311EC61F1500FD9ACE /* iTunesArtwork.png in Resources */,
 				D30A18381D2C3A0E0063F4E8 /* Assets.xcassets in Resources */,
 				D30A18361D2C3A0E0063F4E8 /* Main.storyboard in Resources */,
 			);
@@ -215,8 +219,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -261,8 +267,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
