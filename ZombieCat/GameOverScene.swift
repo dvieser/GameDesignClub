@@ -37,6 +37,9 @@ class GameOverScene: SKScene {
       addChild(loseNode)
     }
     
+    let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+    view.addGestureRecognizer(tapRecognizer)
+
     let wait = SKAction.wait(forDuration: 2.0)
     let block = SKAction.run {
       if let myScene = GameScene(fileNamed: "GameScene") {
@@ -44,6 +47,14 @@ class GameOverScene: SKScene {
         self.view?.presentScene(myScene)
       }
     }
-    run(SKAction.sequence([wait, block]))
+    //run(SKAction.sequence([wait, block]))
   }
+    
+    func handleTap(recognizer:UIPanGestureRecognizer) {
+        if let myScene = GameScene(fileNamed: "GameScene") {
+            myScene.scaleMode = self.scaleMode
+            self.view?.presentScene(myScene)
+        }
+    }
+
 }

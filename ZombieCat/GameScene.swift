@@ -36,36 +36,38 @@ struct PhysicsType  {
 class GameScene: SKScene {
     
     let motionManager = CMMotionManager()
-    var backgroundMusic: SKAudioNode?
+//    var backgroundMusic: SKAudioNode?
     
     var pinBeakerToZombieArm: SKPhysicsJointFixed?
     var beakerReady = false
     var explosionTextures = [SKTexture]()
-    let sleepyTexture = SKTexture(imageNamed: "cat_sleepy")
-    let scaredTexture = SKTexture(imageNamed: "cat_awake")
+    let hitTexture = SKTexture(imageNamed: "purple")
     var monsters: [SKSpriteNode] = []
     var player: SKSpriteNode?
     var arm: SKSpriteNode?
     var currentBeaker: SKSpriteNode?
-
+    var playerStartX: CGFloat?
+    
     var previousThrowPower = 100.0
     var previousThrowAngle = 0.0
     var currentPower = 100.0
     var currentAngle = 0.0
     
-    var beakersLeft = 300
-    var catsRemaining = 2
+    var timeRemaining = 50
+    var catsRemaining = 0
     
     let throwables = ["apple", "coke", "hamburger", "hotdog", "tomato"]
 
     private var panStartLocation:CGPoint = CGPoint.zero
     
     override func didMove(to view: SKView) {
+        super.didMove(to: view)
+        
         motionManager.startAccelerometerUpdates()
         
-//        backgroundMusic = SKAudioNode(fileNamed: "background.wav")
-//        backgroundMusic?.autoplayLooped = true
-//        self.addChild(backgroundMusic!)
+        let backgroundMusic = SKAudioNode(fileNamed: "background")
+        backgroundMusic.autoplayLooped = true
+        addChild(backgroundMusic)
 
         
         for child in self.children {
@@ -78,6 +80,8 @@ class GameScene: SKScene {
             }
         }
         
+        catsRemaining = monsters.count
+        
         player = childNode(withName: "player") as? SKSpriteNode
 //        player?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 400))
         player?.physicsBody?.isDynamic = true
@@ -85,6 +89,9 @@ class GameScene: SKScene {
         player?.physicsBody?.allowsRotation = false
         player?.physicsBody?.mass = 1.0
         player?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        playerStartX = player?.position.x
+        
+        physicsWorld.add(SKPhysicsJointSliding.joint(withBodyA: self.physicsBody!, bodyB: (player?.physicsBody)!, anchor: CGPoint.zero, axis: CGVector.init(dx: 1, dy: 0)))
         
         arm = player?.childNode(withName: "arm") as? SKSpriteNode
         
@@ -95,25 +102,32 @@ class GameScene: SKScene {
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         view.addGestureRecognizer(panRecognizer)
         
-        camera = player?.childNode(withName: "playerCameraNode") as? SKCameraNode
-
         newProjectile()
         for i in 0...8 {
             explosionTextures.append(SKTexture(imageNamed: "regularExplosion0\(i)"))
         }
+        updateClock()
 
     }
     
     override func didSimulatePhysics() {
         super.didSimulatePhysics()
 //        updateMonsters()
+        
+        camera?.position = CGPoint(x: max((player?.position.x)!,-2400.0), y: 0.0)
+        if let playerStartX = playerStartX, let playerPositionX = player?.position.x {
+            if playerPositionX < playerStartX {
+                player?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                player?.position.x = playerStartX
+            }
+        }
     }
 
     func newProjectile () {
         let randomIndex = Int(arc4random_uniform(UInt32(throwables.count)))
         let image = throwables[randomIndex]
-        let beaker = SKSpriteNode(imageNamed: "tomato")
-        beaker.size = CGSize(width: 40, height: 40)
+        let beaker = SKSpriteNode(imageNamed: image)
+        beaker.size = CGSize(width: 80, height: 80)
         
         beaker.name = "beaker"
         beaker.zPosition = 5
@@ -225,7 +239,7 @@ class GameScene: SKScene {
                             if (physicsBody.contactTestBitMask & contactedBody.categoryBitMask) != 0  ||
                                 (contactedBody.contactTestBitMask & physicsBody.categoryBitMask) != 0  {
                                 if let catNode = contactedBody.node as? SKSpriteNode {
-                                    catNode.texture = self.sleepyTexture
+                                    catNode.texture = self.hitTexture
                                 }
                                 contactedBody.node?.run(turnGreen)
                                 self.catsRemaining -= 1
@@ -249,7 +263,7 @@ class GameScene: SKScene {
                 
                 // 4
                 cloud.run(boom) {
-                    self.beakersLeft -= 1
+//                    self.beakersLeft -= 1
                     self.run(reload)
                     self.updateLabels()
                     self.checkEndGame()
@@ -257,6 +271,29 @@ class GameScene: SKScene {
             }
         }
     }
+    
+    func updateClock() {
+        var leadingZero = ""
+//        var leadingZeroMin = ""
+//        var timeMin = Int()
+        let actionwait = SKAction.wait(forDuration: 1.0)
+        var timesecond = 50
+        if let clockText: SKLabelNode = childNode(withName: "cameraNode")?.childNode(withName: "timeRemainingLabel") as? SKLabelNode {
+            let actionrun = SKAction.run() {
+                timesecond = timesecond - 1
+                if timesecond == 0 {
+                    self.lose()
+                }
+                //            if timesecond == 60 {timesecond = 0}
+                //            if timeMin  / 60 <= 9 { leadingZeroMin = "0" } else { leadingZeroMin = "" }
+                if timesecond <= 9 { leadingZero = "0" } else { leadingZero = "" }
+                
+                clockText.text = "\(leadingZero)\(timesecond)"
+            }
+            run(SKAction.repeatForever(SKAction.sequence([actionwait,actionrun])))
+        }
+    }
+    
     
 //    func updateMonsters() {
 //        for monster in monsters {
@@ -293,33 +330,40 @@ class GameScene: SKScene {
 //        tossBeaker(strength: CGVector(dx: 1400, dy: 1150))
 //    }
     func updateLabels() {
-        if let beakerLabel = childNode(withName: "beakersLeftLabel") as? SKLabelNode {
-            beakerLabel.text = "\(beakersLeft)"
-        }
+//        if let beakerLabel = childNode(withName: "beakersLeftLabel") as? SKLabelNode {
+//            beakerLabel.text = "\(beakersLeft)"
+//        }
         
         if let catsLabel = childNode(withName: "catsRemainingLabel") as? SKLabelNode {
             catsLabel.text = "\(catsRemaining)"
         }
     }
     
-    func checkEndGame() {
-        if catsRemaining == 0 {
-            print("you win")
-            if let gameOverScene = GameOverScene(fileNamed: "GameOverScene") {
-                gameOverScene.scaleMode = scaleMode
-                gameOverScene.won = true
-                view?.presentScene(gameOverScene)
-            }
-            return
+    func lose() {
+        print("you lose")
+        removeAllActions()
+        if let gameOverScene = GameOverScene(fileNamed: "GameOverScene") {
+            gameOverScene.scaleMode = scaleMode
+            view?.presentScene(gameOverScene)
+        }
+    }
+    
+    func win() {
+        print("you win")
+        removeAllActions()
+        if let gameOverScene = GameOverScene(fileNamed: "GameOverScene") {
+            gameOverScene.scaleMode = scaleMode
+            gameOverScene.won = true
+            view?.presentScene(gameOverScene)
         }
         
-        if beakersLeft == 0 {
-            print("you lose")
-            if let gameOverScene = GameOverScene(fileNamed: "GameOverScene") {
-                gameOverScene.scaleMode = scaleMode
-                view?.presentScene(gameOverScene)
-            }
+    }
+    
+    func checkEndGame() {
+        if catsRemaining == 0 {
+            win()
         }
+        
     }
     
     func handlePan(recognizer:UIPanGestureRecognizer) {
@@ -360,10 +404,10 @@ class GameScene: SKScene {
         if let player = childNode(withName: "player") as? SKSpriteNode {
             if let data = motionManager.accelerometerData {
                 if data.acceleration.y < -0.2  {
-                    print("LEFT: \(data.acceleration.y)")
+//                    print("LEFT: \(data.acceleration.y)")
                     player.physicsBody?.applyForce(CGVector(dx: -1500, dy: 0))
                 } else if data.acceleration.y > 0.2 {
-                    print("RIGHT: \(data.acceleration.y)")
+//                    print("RIGHT: \(data.acceleration.y)")
                     player.physicsBody?.applyForce(CGVector(dx: 1500, dy: 0))
                 } else {
                     player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
@@ -376,31 +420,31 @@ class GameScene: SKScene {
 // MARK: - SKPhysicsContactDelegate
 extension GameScene: SKPhysicsContactDelegate {
     
-    func didBegin(_ contact: SKPhysicsContact) {
-        if (contact.bodyA.categoryBitMask == PhysicsType.cat) {
-            if let catNode = contact.bodyA.node as? SKSpriteNode {
-                catNode.texture = scaredTexture
-            }
-        }
-        
-        if (contact.bodyB.categoryBitMask == PhysicsType.cat) {
-            if let catNode = contact.bodyB.node as? SKSpriteNode {
-                catNode.texture = scaredTexture
-            }
-        }
-    }
+//    func didBegin(_ contact: SKPhysicsContact) {
+//        if (contact.bodyA.categoryBitMask == PhysicsType.cat) {
+//            if let catNode = contact.bodyA.node as? SKSpriteNode {
+//                catNode.texture = hitTexture
+//            }
+//        }
+//        
+//        if (contact.bodyB.categoryBitMask == PhysicsType.cat) {
+//            if let catNode = contact.bodyB.node as? SKSpriteNode {
+//                catNode.texture = hitTexture
+//            }
+//        }
+//    }
     
-    func didEnd(_ contact: SKPhysicsContact) {
-        if (contact.bodyA.categoryBitMask == PhysicsType.cat) {
-            if let catNode = contact.bodyA.node as? SKSpriteNode {
-                catNode.texture = sleepyTexture
-            }
-        }
-        
-        if (contact.bodyB.categoryBitMask == PhysicsType.cat) {
-            if let catNode = contact.bodyB.node as? SKSpriteNode {
-                catNode.texture = sleepyTexture
-            }
-        }
-    }
+//    func didEnd(_ contact: SKPhysicsContact) {
+//        if (contact.bodyA.categoryBitMask == PhysicsType.cat) {
+//            if let catNode = contact.bodyA.node as? SKSpriteNode {
+//                catNode.texture = sleepyTexture
+//            }
+//        }
+//        
+//        if (contact.bodyB.categoryBitMask == PhysicsType.cat) {
+//            if let catNode = contact.bodyB.node as? SKSpriteNode {
+//                catNode.texture = sleepyTexture
+//            }
+//        }
+//    }
 }
