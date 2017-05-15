@@ -36,7 +36,6 @@ struct PhysicsType  {
 class GameScene: SKScene {
     
     let motionManager = CMMotionManager()
-//    var backgroundMusic: SKAudioNode?
     
     var pinBeakerToZombieArm: SKPhysicsJointFixed?
     var beakerReady = false
@@ -74,14 +73,15 @@ class GameScene: SKScene {
             if child.name == "monster" {
                 if let child = child as? SKSpriteNode {
                     monsters.append(child)
-//                    child.physicsBody?.allowsRotation = false
+                    child.physicsBody?.allowsRotation = true
 //                    child.physicsBody?.mass = 100.0
                 }
             }
         }
         
         catsRemaining = monsters.count
-        
+        self.updateLabels()
+
         player = childNode(withName: "player") as? SKSpriteNode
 //        player?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 400))
         player?.physicsBody?.isDynamic = true
@@ -243,6 +243,7 @@ class GameScene: SKScene {
                                 }
                                 contactedBody.node?.run(turnGreen)
                                 self.catsRemaining -= 1
+                                self.updateLabels()
                                 contactedBody.categoryBitMask = PhysicsType.zombieCat
                             }
                         }
@@ -333,8 +334,7 @@ class GameScene: SKScene {
 //        if let beakerLabel = childNode(withName: "beakersLeftLabel") as? SKLabelNode {
 //            beakerLabel.text = "\(beakersLeft)"
 //        }
-        
-        if let catsLabel = childNode(withName: "catsRemainingLabel") as? SKLabelNode {
+        if let catsLabel = childNode(withName: "cameraNode")?.childNode(withName: "catsRemainingLabel") as? SKLabelNode {
             catsLabel.text = "\(catsRemaining)"
         }
     }
