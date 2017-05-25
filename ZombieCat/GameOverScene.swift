@@ -28,11 +28,11 @@ class GameOverScene: SKScene {
   
   override func didMove(to view: SKView) {
     if won {
-      let winNode = SKSpriteNode(imageNamed: "YouWin")
+      let winNode = SKSpriteNode(imageNamed: "You-Win")
       winNode.anchorPoint = CGPoint.zero
       addChild(winNode)
     } else {
-      let loseNode = SKSpriteNode(imageNamed: "YouLose")
+      let loseNode = SKSpriteNode(imageNamed: "play-again")
       loseNode.anchorPoint = CGPoint.zero
       addChild(loseNode)
     }

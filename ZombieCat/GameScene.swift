@@ -55,7 +55,7 @@ class GameScene: SKScene {
     var timeRemaining = 50
     var catsRemaining = 0
     
-    let throwables = ["apple", "coke", "hamburger", "hotdog", "tomato"]
+    let throwables = ["apple", "coke", "hamburger", "hotdog", "tomato", "pizza", "grapes"]
 
     private var panStartLocation:CGPoint = CGPoint.zero
     
@@ -82,6 +82,10 @@ class GameScene: SKScene {
         catsRemaining = monsters.count
         self.updateLabels()
 
+//        let reloadTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleReload))
+//        view.addGestureRecognizer(reloadTapRecognizer)
+
+        
         player = childNode(withName: "player") as? SKSpriteNode
 //        player?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 400))
         player?.physicsBody?.isDynamic = true
@@ -295,6 +299,39 @@ class GameScene: SKScene {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let camera: SKCameraNode = childNode(withName: "cameraNode") as! SKCameraNode
+
+        if camera.contains(touch.location(in: self)) {
+            if let myScene = GameScene(fileNamed: "GameScene") {
+                myScene.scaleMode = self.scaleMode
+                self.view?.presentScene(myScene)
+            }
+        }
+    }
+    
+//    func handleReload(recognizer:UIPanGestureRecognizer) {
+//        
+//        let camera: SKCameraNode = childNode(withName: "cameraNode") as! SKCameraNode
+//        let reload: SKSpriteNode = camera.childNode(withName: "reload") as! SKSpriteNode
+//
+//        let touchLocation = recognizer.location(in: self.view)
+//
+//        let cameraTouchLocation = scene!.convert(touchLocation, to: camera)
+//        
+//        let touchedNode = childNode(withName: "cameraNode")!.atPoint(cameraTouchLocation)
+//
+//        if touchedNode is SKSpriteNode {
+//            if touchedNode.isEqual(to: reload) {
+//                if let myScene = GameScene(fileNamed: "GameScene") {
+//                    myScene.scaleMode = self.scaleMode
+//                    self.view?.presentScene(myScene)
+//                }
+//            }
+//        }
+//        
+//    }
     
 //    func updateMonsters() {
 //        for monster in monsters {
