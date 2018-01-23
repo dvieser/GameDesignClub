@@ -193,11 +193,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = raywenderlich.com;
+				ORGANIZATIONNAME = "Hays CISD";
 				TargetAttributes = {
 					D30A18281D2C3A0E0063F4E8 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7KXC9KWB6D;
+						DevelopmentTeam = GH2D27RMGJ;
 						DevelopmentTeamName = "Brian Broom";
 						LastSwiftMigration = 0800;
 					};
@@ -405,11 +405,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7KXC9KWB6D;
+				DEVELOPMENT_TEAM = GH2D27RMGJ;
 				INFOPLIST_FILE = ZombieCat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hayscisd.EmojiSplat;
+				PRODUCT_BUNDLE_IDENTIFIER = net.hayscisd.EmojiSplat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -419,11 +419,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7KXC9KWB6D;
+				DEVELOPMENT_TEAM = GH2D27RMGJ;
 				INFOPLIST_FILE = ZombieCat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hayscisd.EmojiSplat;
+				PRODUCT_BUNDLE_IDENTIFIER = net.hayscisd.EmojiSplat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
@@ -514,6 +514,7 @@
 				EE7118F61ED72ABD008E5ACE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE7118F81ED72ABD008E5ACE /* Build configuration list for PBXNativeTarget "ZombieCatStickers" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +523,7 @@
 				EE7118FA1ED72ABD008E5ACE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
