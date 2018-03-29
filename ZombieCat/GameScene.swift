@@ -55,13 +55,20 @@ class GameScene: SKScene {
     var timeRemaining = 50
     var catsRemaining = 0
     
-    let throwables = ["apple", "coke", "hamburger", "hotdog", "tomato", "pizza", "grapes"]
-
+    var throwables : [String] = []
+    
     private var panStartLocation:CGPoint = CGPoint.zero
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
+        let fileManager = FileManager.default
+        let bundleURL = Bundle.main.bundleURL
+        let assetURL = bundleURL.appendingPathComponent("throwables.bundle")
+        let contents = try! fileManager.contentsOfDirectory(at: assetURL, includingPropertiesForKeys: [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey], options: .skipsHiddenFiles)
+        throwables = contents.map { $0.lastPathComponent }
+
+        constrainCamera()
         motionManager.startAccelerometerUpdates()
         
         let backgroundMusic = SKAudioNode(fileNamed: "background")
@@ -130,7 +137,7 @@ class GameScene: SKScene {
     func newProjectile () {
         let randomIndex = Int(arc4random_uniform(UInt32(throwables.count)))
         let image = throwables[randomIndex]
-        let beaker = SKSpriteNode(imageNamed: image)
+        let beaker = SKSpriteNode(imageNamed: "throwables.bundle/\(image)")
         beaker.size = CGSize(width: 80, height: 80)
         
         beaker.name = "beaker"
@@ -237,7 +244,7 @@ class GameScene: SKScene {
                 let greenColor = SKColor(red: 57.0/255.0, green: 250.0/255.0, blue: 146.0/255.0, alpha: 1.0)
                 let turnGreen = SKAction.colorize(with: greenColor, colorBlendFactor: 0.7, duration: 0.3)
 
-                let sfx = SKAction.playSoundFileNamed("yee.wav", waitForCompletion: false)
+                let sfx = SKAction.playSoundFileNamed("yee.mp3", waitForCompletion: false)
                 
                 let zombifyContactedCat = SKAction.run() {
                     if let physicsBody = explosionRadius.physicsBody {
@@ -279,6 +286,31 @@ class GameScene: SKScene {
                 }
             }
         }
+    }
+    
+    func constrainCamera() {
+        // get the scene size as scaled by `scaleMode = .AspectFill`
+        let cameraNode = childNode(withName: "cameraNode")!
+        let scaledSize = CGSize(width: size.width * cameraNode.xScale, height: size.height * cameraNode.yScale)
+        
+        // get the frame of the entire level contents
+        let boardNode = childNode(withName: "background")!
+        let boardContentRect = boardNode.calculateAccumulatedFrame()
+        
+        // inset that frame from the edges of the level
+        // inset by `scaledSize / 2 - 100` to show 100 pt of black around the level
+        // (no need for `- 100` if you want zero padding)
+        // use min() to make sure we don't inset too far if the level is small
+        let xInset = min((scaledSize.width / 2) - 650, boardContentRect.width / 2)
+        let yInset = min((scaledSize.height / 2) - 650, boardContentRect.height / 2)
+        let insetContentRect = boardContentRect.insetBy(dx: xInset, dy: yInset)
+        
+        // use the corners of the inset as the X and Y range of a position constraint
+        let xRange = SKRange(lowerLimit: insetContentRect.minX, upperLimit: insetContentRect.maxX)
+        let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
+        let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
+        levelEdgeConstraint.referenceNode = boardNode
+        camera?.constraints = [levelEdgeConstraint]
     }
     
     func updateClock() {

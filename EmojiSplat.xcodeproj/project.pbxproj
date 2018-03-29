@@ -21,12 +21,14 @@
 		D30A184D1D2C3ADC0063F4E8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A184C1D2C3ADC0063F4E8 /* GameScene.sks */; };
 		EE123B311EC61F1500FD9ACE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */; };
 		EE123B321EC61F1500FD9ACE /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE123B301EC61F1500FD9ACE /* iTunesArtwork@2x.png */; };
-		EE123B341EC64FFD00FD9ACE /* background in Resources */ = {isa = PBXBuildFile; fileRef = EE123B331EC64FFD00FD9ACE /* background */; };
 		EE123B361EC659F500FD9ACE /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = EE123B351EC659F500FD9ACE /* Stickers.xcstickers */; };
+		EE27D965203F7EA000AFE5B6 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE27D963203F7EA000AFE5B6 /* background.mp3 */; };
+		EE27D966203F7EA000AFE5B6 /* yee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE27D964203F7EA000AFE5B6 /* yee.mp3 */; };
+		EE4998A820644E220030ED35 /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE4998A720644E220030ED35 /* GameScene2.sks */; };
+		EE650C5F2051E6DF001665D1 /* throwables.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE650C5E2051E6DF001665D1 /* throwables.bundle */; };
 		EE7118EE1ED72ABD008E5ACE /* StickerPackExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EE7118ED1ED72ABD008E5ACE /* StickerPackExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EE7118F21ED72ABD008E5ACE /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = EE7118F11ED72ABD008E5ACE /* Stickers.xcstickers */; };
 		EE7118F31ED72ABD008E5ACE /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = EE7118F11ED72ABD008E5ACE /* Stickers.xcstickers */; };
-		EE7118FC1ED7406E008E5ACE /* yee.wav in Resources */ = {isa = PBXBuildFile; fileRef = EE7118FB1ED7406E008E5ACE /* yee.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,12 +72,14 @@
 		D30A184C1D2C3ADC0063F4E8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		EE123B301EC61F1500FD9ACE /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
-		EE123B331EC64FFD00FD9ACE /* background */ = {isa = PBXFileReference; lastKnownFileType = file; path = background; sourceTree = "<group>"; };
 		EE123B351EC659F500FD9ACE /* Stickers.xcstickers */ = {isa = PBXFileReference; lastKnownFileType = folder.stickers; path = Stickers.xcstickers; sourceTree = "<group>"; };
+		EE27D963203F7EA000AFE5B6 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
+		EE27D964203F7EA000AFE5B6 /* yee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yee.mp3; sourceTree = "<group>"; };
+		EE4998A720644E220030ED35 /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
+		EE650C5E2051E6DF001665D1 /* throwables.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = throwables.bundle; sourceTree = "<group>"; };
 		EE7118EA1ED72ABD008E5ACE /* ZombieCatStickers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieCatStickers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7118ED1ED72ABD008E5ACE /* StickerPackExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StickerPackExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7118F11ED72ABD008E5ACE /* Stickers.xcstickers */ = {isa = PBXFileReference; lastKnownFileType = folder.stickers; name = Stickers.xcstickers; path = StickerPackExtension/Stickers.xcstickers; sourceTree = "<group>"; };
-		EE7118FB1ED7406E008E5ACE /* yee.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = yee.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,15 +118,16 @@
 				D30A182C1D2C3A0E0063F4E8 /* AppDelegate.swift */,
 				D30A18321D2C3A0E0063F4E8 /* GameViewController.swift */,
 				D30A184C1D2C3ADC0063F4E8 /* GameScene.sks */,
+				EE4998A720644E220030ED35 /* GameScene2.sks */,
 				D30A18301D2C3A0E0063F4E8 /* GameScene.swift */,
 				D30A18421D2C3A620063F4E8 /* BeakerSparkTrail.sks */,
 				D30A18431D2C3A620063F4E8 /* spark.png */,
 				D30A18441D2C3A620063F4E8 /* BeakerSmoke.sks */,
 				D30A18451D2C3A620063F4E8 /* GameOverScene.sks */,
 				D30A18461D2C3A620063F4E8 /* GameOverScene.swift */,
-				EE123B331EC64FFD00FD9ACE /* background */,
-				EE7118FB1ED7406E008E5ACE /* yee.wav */,
 				D30A18341D2C3A0E0063F4E8 /* Main.storyboard */,
+				EE27D962203F7E8500AFE5B6 /* sounds */,
+				EE650C5E2051E6DF001665D1 /* throwables.bundle */,
 				D30A18371D2C3A0E0063F4E8 /* Assets.xcassets */,
 				EE123B351EC659F500FD9ACE /* Stickers.xcstickers */,
 				EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */,
@@ -131,6 +136,15 @@
 				D30A183C1D2C3A0E0063F4E8 /* Info.plist */,
 			);
 			path = ZombieCat;
+			sourceTree = "<group>";
+		};
+		EE27D962203F7E8500AFE5B6 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				EE27D963203F7EA000AFE5B6 /* background.mp3 */,
+				EE27D964203F7EA000AFE5B6 /* yee.mp3 */,
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,15 +250,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE7118FC1ED7406E008E5ACE /* yee.wav in Resources */,
 				D30A18491D2C3A620063F4E8 /* BeakerSmoke.sks in Resources */,
 				EE123B321EC61F1500FD9ACE /* iTunesArtwork@2x.png in Resources */,
+				EE650C5F2051E6DF001665D1 /* throwables.bundle in Resources */,
+				EE27D966203F7EA000AFE5B6 /* yee.mp3 in Resources */,
 				D30A18481D2C3A620063F4E8 /* spark.png in Resources */,
 				D30A18471D2C3A620063F4E8 /* BeakerSparkTrail.sks in Resources */,
+				EE4998A820644E220030ED35 /* GameScene2.sks in Resources */,
+				EE27D965203F7EA000AFE5B6 /* background.mp3 in Resources */,
 				D30A184A1D2C3A620063F4E8 /* GameOverScene.sks in Resources */,
 				D30A184D1D2C3ADC0063F4E8 /* GameScene.sks in Resources */,
 				D30A183B1D2C3A0E0063F4E8 /* LaunchScreen.storyboard in Resources */,
-				EE123B341EC64FFD00FD9ACE /* background in Resources */,
 				EE123B361EC659F500FD9ACE /* Stickers.xcstickers in Resources */,
 				EE123B311EC61F1500FD9ACE /* iTunesArtwork.png in Resources */,
 				D30A18381D2C3A0E0063F4E8 /* Assets.xcassets in Resources */,
