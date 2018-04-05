@@ -21,39 +21,11 @@
 		D30A184D1D2C3ADC0063F4E8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A184C1D2C3ADC0063F4E8 /* GameScene.sks */; };
 		EE123B311EC61F1500FD9ACE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */; };
 		EE123B321EC61F1500FD9ACE /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE123B301EC61F1500FD9ACE /* iTunesArtwork@2x.png */; };
-		EE123B361EC659F500FD9ACE /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = EE123B351EC659F500FD9ACE /* Stickers.xcstickers */; };
 		EE27D965203F7EA000AFE5B6 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE27D963203F7EA000AFE5B6 /* background.mp3 */; };
 		EE27D966203F7EA000AFE5B6 /* yee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE27D964203F7EA000AFE5B6 /* yee.mp3 */; };
 		EE4998A820644E220030ED35 /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE4998A720644E220030ED35 /* GameScene2.sks */; };
 		EE650C5F2051E6DF001665D1 /* throwables.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE650C5E2051E6DF001665D1 /* throwables.bundle */; };
-		EE7118EE1ED72ABD008E5ACE /* StickerPackExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EE7118ED1ED72ABD008E5ACE /* StickerPackExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EE7118F21ED72ABD008E5ACE /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = EE7118F11ED72ABD008E5ACE /* Stickers.xcstickers */; };
-		EE7118F31ED72ABD008E5ACE /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = EE7118F11ED72ABD008E5ACE /* Stickers.xcstickers */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EE7118EF1ED72ABD008E5ACE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D30A18211D2C3A0E0063F4E8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EE7118EC1ED72ABD008E5ACE;
-			remoteInfo = StickerPackExtension;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		EE7118F71ED72ABD008E5ACE /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				EE7118EE1ED72ABD008E5ACE /* StickerPackExtension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D30A18291D2C3A0E0063F4E8 /* EmojiSplat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiSplat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,14 +44,10 @@
 		D30A184C1D2C3ADC0063F4E8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		EE123B301EC61F1500FD9ACE /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
-		EE123B351EC659F500FD9ACE /* Stickers.xcstickers */ = {isa = PBXFileReference; lastKnownFileType = folder.stickers; path = Stickers.xcstickers; sourceTree = "<group>"; };
 		EE27D963203F7EA000AFE5B6 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		EE27D964203F7EA000AFE5B6 /* yee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yee.mp3; sourceTree = "<group>"; };
 		EE4998A720644E220030ED35 /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
 		EE650C5E2051E6DF001665D1 /* throwables.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = throwables.bundle; sourceTree = "<group>"; };
-		EE7118EA1ED72ABD008E5ACE /* ZombieCatStickers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieCatStickers.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE7118ED1ED72ABD008E5ACE /* StickerPackExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StickerPackExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE7118F11ED72ABD008E5ACE /* Stickers.xcstickers */ = {isa = PBXFileReference; lastKnownFileType = folder.stickers; name = Stickers.xcstickers; path = StickerPackExtension/Stickers.xcstickers; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +64,6 @@
 		D30A18201D2C3A0E0063F4E8 = {
 			isa = PBXGroup;
 			children = (
-				EE7118F11ED72ABD008E5ACE /* Stickers.xcstickers */,
 				D30A182B1D2C3A0E0063F4E8 /* ZombieCat */,
 				D30A182A1D2C3A0E0063F4E8 /* Products */,
 			);
@@ -106,8 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				D30A18291D2C3A0E0063F4E8 /* EmojiSplat.app */,
-				EE7118EA1ED72ABD008E5ACE /* ZombieCatStickers.app */,
-				EE7118ED1ED72ABD008E5ACE /* StickerPackExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,7 +94,6 @@
 				EE27D962203F7E8500AFE5B6 /* sounds */,
 				EE650C5E2051E6DF001665D1 /* throwables.bundle */,
 				D30A18371D2C3A0E0063F4E8 /* Assets.xcassets */,
-				EE123B351EC659F500FD9ACE /* Stickers.xcstickers */,
 				EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */,
 				EE123B301EC61F1500FD9ACE /* iTunesArtwork@2x.png */,
 				D30A18391D2C3A0E0063F4E8 /* LaunchScreen.storyboard */,
@@ -167,38 +131,6 @@
 			productReference = D30A18291D2C3A0E0063F4E8 /* EmojiSplat.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EE7118E91ED72ABD008E5ACE /* ZombieCatStickers */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EE7118F81ED72ABD008E5ACE /* Build configuration list for PBXNativeTarget "ZombieCatStickers" */;
-			buildPhases = (
-				EE7118E81ED72ABD008E5ACE /* Resources */,
-				EE7118F71ED72ABD008E5ACE /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EE7118F01ED72ABD008E5ACE /* PBXTargetDependency */,
-			);
-			name = ZombieCatStickers;
-			productName = ZombieCatStickers;
-			productReference = EE7118EA1ED72ABD008E5ACE /* ZombieCatStickers.app */;
-			productType = "com.apple.product-type.application.messages";
-		};
-		EE7118EC1ED72ABD008E5ACE /* StickerPackExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EE7118F41ED72ABD008E5ACE /* Build configuration list for PBXNativeTarget "StickerPackExtension" */;
-			buildPhases = (
-				EE7118EB1ED72ABD008E5ACE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = StickerPackExtension;
-			productName = StickerPackExtension;
-			productReference = EE7118ED1ED72ABD008E5ACE /* StickerPackExtension.appex */;
-			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -214,14 +146,6 @@
 						DevelopmentTeam = GH2D27RMGJ;
 						DevelopmentTeamName = "Brian Broom";
 						LastSwiftMigration = 0800;
-					};
-					EE7118E91ED72ABD008E5ACE = {
-						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
-					};
-					EE7118EC1ED72ABD008E5ACE = {
-						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -239,8 +163,6 @@
 			projectRoot = "";
 			targets = (
 				D30A18281D2C3A0E0063F4E8 /* EmojiSplat */,
-				EE7118E91ED72ABD008E5ACE /* ZombieCatStickers */,
-				EE7118EC1ED72ABD008E5ACE /* StickerPackExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -261,26 +183,9 @@
 				D30A184A1D2C3A620063F4E8 /* GameOverScene.sks in Resources */,
 				D30A184D1D2C3ADC0063F4E8 /* GameScene.sks in Resources */,
 				D30A183B1D2C3A0E0063F4E8 /* LaunchScreen.storyboard in Resources */,
-				EE123B361EC659F500FD9ACE /* Stickers.xcstickers in Resources */,
 				EE123B311EC61F1500FD9ACE /* iTunesArtwork.png in Resources */,
 				D30A18381D2C3A0E0063F4E8 /* Assets.xcassets in Resources */,
 				D30A18361D2C3A0E0063F4E8 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE7118E81ED72ABD008E5ACE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EE7118F31ED72ABD008E5ACE /* Stickers.xcstickers in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE7118EB1ED72ABD008E5ACE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EE7118F21ED72ABD008E5ACE /* Stickers.xcstickers in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,14 +204,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EE7118F01ED72ABD008E5ACE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EE7118EC1ED72ABD008E5ACE /* StickerPackExtension */;
-			targetProxy = EE7118EF1ED72ABD008E5ACE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D30A18341D2C3A0E0063F4E8 /* Main.storyboard */ = {
@@ -446,62 +343,6 @@
 			};
 			name = Release;
 		};
-		EE7118F51ED72ABD008E5ACE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = StickerPackExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ches.ZombieCatStickers.StickerPackExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		EE7118F61ED72ABD008E5ACE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				INFOPLIST_FILE = StickerPackExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ches.ZombieCatStickers.StickerPackExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		EE7118F91ED72ABD008E5ACE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = ZombieCatStickers/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ches.ZombieCatStickers;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		EE7118FA1ED72ABD008E5ACE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				INFOPLIST_FILE = ZombieCatStickers/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ches.ZombieCatStickers;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -519,24 +360,6 @@
 			buildConfigurations = (
 				D30A18401D2C3A0E0063F4E8 /* Debug */,
 				D30A18411D2C3A0E0063F4E8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EE7118F41ED72ABD008E5ACE /* Build configuration list for PBXNativeTarget "StickerPackExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EE7118F51ED72ABD008E5ACE /* Debug */,
-				EE7118F61ED72ABD008E5ACE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EE7118F81ED72ABD008E5ACE /* Build configuration list for PBXNativeTarget "ZombieCatStickers" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EE7118F91ED72ABD008E5ACE /* Debug */,
-				EE7118FA1ED72ABD008E5ACE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

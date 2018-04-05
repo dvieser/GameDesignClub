@@ -40,7 +40,7 @@ struct LevelDetail {
 
 class GameScene: SKScene {
     
-    let levelDetail: [LevelDetail] = [ LevelDetail(bundle = "", background = "") ]
+    //let levelDetail: [LevelDetail] = [ LevelDetail(bundle = "", background = "") ]
     
     let motionManager = CMMotionManager()
     
