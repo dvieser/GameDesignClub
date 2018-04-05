@@ -33,7 +33,14 @@ struct PhysicsType  {
   static let zombieCat       :UInt32  =   32
 }
 
+struct LevelDetail {
+    var bundle: String
+    var background: String
+}
+
 class GameScene: SKScene {
+    
+    let levelDetail: [LevelDetail] = [ LevelDetail(bundle = "", background = "") ]
     
     let motionManager = CMMotionManager()
     
