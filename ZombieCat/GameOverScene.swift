@@ -42,7 +42,7 @@ class GameOverScene: SKScene {
 
     let wait = SKAction.wait(forDuration: 2.0)
     let block = SKAction.run {
-      if let myScene = GameScene(fileNamed: "GameScene") {
+      if let myScene = GameScene(fileNamed: "LevelSelectScene") {
         myScene.scaleMode = self.scaleMode
         self.view?.presentScene(myScene)
       }
@@ -51,7 +51,7 @@ class GameOverScene: SKScene {
   }
     
     func handleTap(recognizer:UIPanGestureRecognizer) {
-        if let myScene = GameScene(fileNamed: "GameScene") {
+        if let myScene = GameScene(fileNamed: "LevelSelectScene") {
             myScene.scaleMode = self.scaleMode
             self.view?.presentScene(myScene)
         }

@@ -40,7 +40,7 @@ struct LevelDetail {
 
 class GameScene: SKScene {
     
-    let levelDetail: [LevelDetail] = [ LevelDetail(bundle = "", background = "") ]
+    //let levelDetail: [LevelDetail] = [ LevelDetail(bundle = "", background = "") ]
     
     let motionManager = CMMotionManager()
     
@@ -347,7 +347,7 @@ class GameScene: SKScene {
         let camera: SKCameraNode = childNode(withName: "cameraNode") as! SKCameraNode
 
         if camera.contains(touch.location(in: self)) {
-            if let myScene = GameScene(fileNamed: "GameScene") {
+            if let myScene = GameScene(fileNamed: "LevelSelectScene") {
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
