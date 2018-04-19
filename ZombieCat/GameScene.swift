@@ -34,13 +34,24 @@ struct PhysicsType  {
 }
 
 struct LevelDetail {
-    var bundle: String
-    var background: String
+    let background: String
+    let music: String
+    let throwables: String
+    let time: UInt
 }
 
 class GameScene: SKScene {
     
-    //let levelDetail: [LevelDetail] = [ LevelDetail(bundle = "", background = "") ]
+//    public convenience init(fileNamed: String, levelDetail: LevelDetail) {
+//        super.init(fileNamed: fileNamed)!
+//        self.levelDetail = levelDetail
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
+    var levelDetail: LevelDetail = LevelDetail(background: "", music: "", throwables: "", time: 0)
     
     let motionManager = CMMotionManager()
     
@@ -59,7 +70,7 @@ class GameScene: SKScene {
     var currentPower = 100.0
     var currentAngle = 0.0
     
-    var timeRemaining = 50
+    var timeRemaining: UInt = 0
     var catsRemaining = 0
     
     var throwables : [String] = []
@@ -68,17 +79,18 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        timeRemaining = levelDetail.time
         
         let fileManager = FileManager.default
         let bundleURL = Bundle.main.bundleURL
-        let assetURL = bundleURL.appendingPathComponent("throwables.bundle")
+        let assetURL = bundleURL.appendingPathComponent("\(levelDetail.throwables).bundle")
         let contents = try! fileManager.contentsOfDirectory(at: assetURL, includingPropertiesForKeys: [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey], options: .skipsHiddenFiles)
         throwables = contents.map { $0.lastPathComponent }
 
         constrainCamera()
         motionManager.startAccelerometerUpdates()
         
-        let backgroundMusic = SKAudioNode(fileNamed: "background")
+        let backgroundMusic = SKAudioNode(fileNamed: levelDetail.music)
         backgroundMusic.autoplayLooped = true
         addChild(backgroundMusic)
 
@@ -144,7 +156,7 @@ class GameScene: SKScene {
     func newProjectile () {
         let randomIndex = Int(arc4random_uniform(UInt32(throwables.count)))
         let image = throwables[randomIndex]
-        let beaker = SKSpriteNode(imageNamed: "throwables.bundle/\(image)")
+        let beaker = SKSpriteNode(imageNamed: "\(levelDetail.throwables).bundle/\(image)")
         beaker.size = CGSize(width: 80, height: 80)
         
         beaker.name = "beaker"
@@ -301,7 +313,7 @@ class GameScene: SKScene {
         let scaledSize = CGSize(width: size.width * cameraNode.xScale, height: size.height * cameraNode.yScale)
         
         // get the frame of the entire level contents
-        let boardNode = childNode(withName: "background")!
+        let boardNode = childNode(withName: levelDetail.background)!
         let boardContentRect = boardNode.calculateAccumulatedFrame()
         
         // inset that frame from the edges of the level
