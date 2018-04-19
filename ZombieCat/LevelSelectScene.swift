@@ -18,13 +18,13 @@ class LevelSelectScene: SKScene {
 
         if level1Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "GameScene") {
-                myScene.levelDetail = LevelDetail(background: "background", music: "background", throwables: "throwables", time: 50)
+                myScene.levelDetail = LevelDetail(background: "background", music: "background", throwables: "food", time: 50)
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
         } else if level2Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "GameScene2") {
-                myScene.levelDetail = LevelDetail(background: "background", music: "background", throwables: "throwables", time: 50)
+                myScene.levelDetail = LevelDetail(background: "background", music: "background", throwables: "furniture", time: 50)
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
