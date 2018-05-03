@@ -24,10 +24,14 @@
 		EE27D965203F7EA000AFE5B6 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE27D963203F7EA000AFE5B6 /* background.mp3 */; };
 		EE27D966203F7EA000AFE5B6 /* yee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE27D964203F7EA000AFE5B6 /* yee.mp3 */; };
 		EE4998A820644E220030ED35 /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE4998A720644E220030ED35 /* GameScene2.sks */; };
+<<<<<<< HEAD
 		EEE7897F208935B700661C81 /* food.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EEE7897E208935B700661C81 /* food.bundle */; };
 		EEE789812089360F00661C81 /* furniture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EEE789802089360F00661C81 /* furniture.bundle */; };
 		EEF32F202076BEC3000018E0 /* LevelSelectScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EEF32F1F2076BEC3000018E0 /* LevelSelectScene.sks */; };
 		EEF32F222076BF1A000018E0 /* LevelSelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF32F212076BF1A000018E0 /* LevelSelectScene.swift */; };
+=======
+		EE650C5F2051E6DF001665D1 /* throwables.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE650C5E2051E6DF001665D1 /* throwables.bundle */; };
+>>>>>>> 9bf0e6ed89307bb6fb5f1d8fd9d2149abaa470cb
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,10 +54,14 @@
 		EE27D963203F7EA000AFE5B6 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		EE27D964203F7EA000AFE5B6 /* yee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yee.mp3; sourceTree = "<group>"; };
 		EE4998A720644E220030ED35 /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		EEE7897E208935B700661C81 /* food.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = food.bundle; sourceTree = "<group>"; };
 		EEE789802089360F00661C81 /* furniture.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = furniture.bundle; sourceTree = "<group>"; };
 		EEF32F1F2076BEC3000018E0 /* LevelSelectScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelSelectScene.sks; sourceTree = "<group>"; };
 		EEF32F212076BF1A000018E0 /* LevelSelectScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectScene.swift; sourceTree = "<group>"; };
+=======
+		EE650C5E2051E6DF001665D1 /* throwables.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = throwables.bundle; sourceTree = "<group>"; };
+>>>>>>> 9bf0e6ed89307bb6fb5f1d8fd9d2149abaa470cb
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +201,10 @@
 				D30A184D1D2C3ADC0063F4E8 /* GameScene.sks in Resources */,
 				EEE7897F208935B700661C81 /* food.bundle in Resources */,
 				D30A183B1D2C3A0E0063F4E8 /* LaunchScreen.storyboard in Resources */,
+<<<<<<< HEAD
 				EEE789812089360F00661C81 /* furniture.bundle in Resources */,
+=======
+>>>>>>> 9bf0e6ed89307bb6fb5f1d8fd9d2149abaa470cb
 				EE123B311EC61F1500FD9ACE /* iTunesArtwork.png in Resources */,
 				D30A18381D2C3A0E0063F4E8 /* Assets.xcassets in Resources */,
 				D30A18361D2C3A0E0063F4E8 /* Main.storyboard in Resources */,

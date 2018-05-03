@@ -42,7 +42,11 @@ struct LevelDetail {
 
 class GameScene: SKScene {
     
+<<<<<<< HEAD
     var levelDetail: LevelDetail = LevelDetail(background: "", music: "", throwables: "", time: 0)
+=======
+    //let levelDetail: [LevelDetail] = [ LevelDetail(bundle = "", background = "") ]
+>>>>>>> 9bf0e6ed89307bb6fb5f1d8fd9d2149abaa470cb
     
     let motionManager = CMMotionManager()
     
