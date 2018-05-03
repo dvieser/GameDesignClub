@@ -15,16 +15,28 @@ class LevelSelectScene: SKScene {
         let touch = touches.first!
         let level1Button: SKNode = childNode(withName: "Level1Button")!
         let level2Button: SKNode = childNode(withName: "Level2Button")!
-
+        
         if level1Button.contains(touch.location(in: self)) {
-            if let myScene = GameScene(fileNamed: "GameScene") {
-                myScene.levelDetail = LevelDetail(background: "background", music: "background", throwables: "food", time: 50)
+            if let myScene = GameScene(fileNamed: "Level1") {
+                myScene.levelDetail = LevelDetail(background: "", music: "background", throwables: "food", time: 50)
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
         } else if level2Button.contains(touch.location(in: self)) {
-            if let myScene = GameScene(fileNamed: "GameScene2") {
-                myScene.levelDetail = LevelDetail(background: "background", music: "background", throwables: "furniture", time: 50)
+            if let myScene = GameScene(fileNamed: "Level2") {
+                myScene.levelDetail = LevelDetail(background: "", music: "background", throwables: "furniture", time: 50)
+                myScene.scaleMode = self.scaleMode
+                self.view?.presentScene(myScene)
+            }
+        } else if level3Button.contains(touch.location(in: self)) {
+            if let myScene = GameScene(fileNamed: "Level3") {
+                myScene.levelDetail = LevelDetail(background: "", music: "background", throwables: "furniture", time: 50)
+                myScene.scaleMode = self.scaleMode
+                self.view?.presentScene(myScene)
+            }
+        } else if level4Button.contains(touch.location(in: self)) {
+            if let myScene = GameScene(fileNamed: "Level4") {
+                myScene.levelDetail = LevelDetail(background: "", music: "background", throwables: "food", time: 50)
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }

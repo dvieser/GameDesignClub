@@ -42,12 +42,7 @@ struct LevelDetail {
 
 class GameScene: SKScene {
     
-<<<<<<< HEAD
     var levelDetail: LevelDetail = LevelDetail(background: "", music: "", throwables: "", time: 0)
-=======
-    //let levelDetail: [LevelDetail] = [ LevelDetail(bundle = "", background = "") ]
->>>>>>> 9bf0e6ed89307bb6fb5f1d8fd9d2149abaa470cb
-    
     let motionManager = CMMotionManager()
     
     var pinBeakerToZombieArm: SKPhysicsJointFixed?
@@ -308,7 +303,7 @@ class GameScene: SKScene {
         let scaledSize = CGSize(width: size.width * cameraNode.xScale, height: size.height * cameraNode.yScale)
         
         // get the frame of the entire level contents
-        let boardNode = childNode(withName: levelDetail.background)!
+        let boardNode = childNode(withName: "background")!
         let boardContentRect = boardNode.calculateAccumulatedFrame()
         
         // inset that frame from the edges of the level
