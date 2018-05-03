@@ -42,15 +42,6 @@ struct LevelDetail {
 
 class GameScene: SKScene {
     
-//    public convenience init(fileNamed: String, levelDetail: LevelDetail) {
-//        super.init(fileNamed: fileNamed)!
-//        self.levelDetail = levelDetail
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
     var levelDetail: LevelDetail = LevelDetail(background: "", music: "", throwables: "", time: 0)
     
     let motionManager = CMMotionManager()
