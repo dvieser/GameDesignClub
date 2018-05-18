@@ -276,7 +276,7 @@
 				DEVELOPMENT_TEAM = GH2D27RMGJ;
 				INFOPLIST_FILE = "CHES Stickers StickerPackExtension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.ches.CHES-Stickers.StickerPackExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = net.hayscisd.chesstickers.StickerPackExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -291,7 +291,7 @@
 				DEVELOPMENT_TEAM = GH2D27RMGJ;
 				INFOPLIST_FILE = "CHES Stickers StickerPackExtension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.ches.CHES-Stickers.StickerPackExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = net.hayscisd.chesstickers.StickerPackExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -306,7 +306,7 @@
 				DEVELOPMENT_TEAM = GH2D27RMGJ;
 				INFOPLIST_FILE = "CHES Stickers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.ches.CHES-Stickers";
+				PRODUCT_BUNDLE_IDENTIFIER = net.hayscisd.chesstickers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -320,7 +320,7 @@
 				DEVELOPMENT_TEAM = GH2D27RMGJ;
 				INFOPLIST_FILE = "CHES Stickers/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.ches.CHES-Stickers";
+				PRODUCT_BUNDLE_IDENTIFIER = net.hayscisd.chesstickers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
