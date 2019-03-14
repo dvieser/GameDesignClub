@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EE22AB092076A9BD0075652C /* CHES Stickers StickerPackExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EE22AB082076A9BD0075652C /* CHES Stickers StickerPackExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EE22AB0D2076A9BD0075652C /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = EE22AB0C2076A9BD0075652C /* Stickers.xcstickers */; };
-		EE22AB0E2076A9BD0075652C /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = EE22AB0C2076A9BD0075652C /* Stickers.xcstickers */; };
+		EEB253E320AF9AFE002F9257 /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = EEB253E220AF9AFE002F9257 /* Stickers.xcstickers */; };
+		EEB253E420AF9C3F002F9257 /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = EEB253E220AF9AFE002F9257 /* Stickers.xcstickers */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,14 +39,14 @@
 /* Begin PBXFileReference section */
 		EE22AB042076A9BD0075652C /* CHES Stickers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CHES Stickers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE22AB082076A9BD0075652C /* CHES Stickers StickerPackExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CHES Stickers StickerPackExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE22AB0C2076A9BD0075652C /* Stickers.xcstickers */ = {isa = PBXFileReference; lastKnownFileType = folder.stickers; name = Stickers.xcstickers; path = "CHES Stickers StickerPackExtension/Stickers.xcstickers"; sourceTree = "<group>"; };
+		EEB253E220AF9AFE002F9257 /* Stickers.xcstickers */ = {isa = PBXFileReference; lastKnownFileType = folder.stickers; path = Stickers.xcstickers; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		EE22AAFD2076A9BD0075652C = {
 			isa = PBXGroup;
 			children = (
-				EE22AB0C2076A9BD0075652C /* Stickers.xcstickers */,
+				EEB253E220AF9AFE002F9257 /* Stickers.xcstickers */,
 				EE22AB052076A9BD0075652C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE22AB0E2076A9BD0075652C /* Stickers.xcstickers in Resources */,
+				EEB253E320AF9AFE002F9257 /* Stickers.xcstickers in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE22AB0D2076A9BD0075652C /* Stickers.xcstickers in Resources */,
+				EEB253E420AF9C3F002F9257 /* Stickers.xcstickers in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

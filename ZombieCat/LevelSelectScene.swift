@@ -15,7 +15,9 @@ class LevelSelectScene: SKScene {
         let touch = touches.first!
         let level1Button: SKNode = childNode(withName: "Level1Button")!
         let level2Button: SKNode = childNode(withName: "Level2Button")!
-        
+        let level3Button: SKNode = childNode(withName: "Level3Button")!
+        let level4Button: SKNode = childNode(withName: "Level4Button")!
+
         if level1Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "Level1") {
                 myScene.levelDetail = LevelDetail(background: "", music: "background", throwables: "food", time: 50)

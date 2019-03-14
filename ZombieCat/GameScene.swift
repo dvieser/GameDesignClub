@@ -253,7 +253,7 @@ class GameScene: SKScene {
                 let greenColor = SKColor(red: 57.0/255.0, green: 250.0/255.0, blue: 146.0/255.0, alpha: 1.0)
                 let turnGreen = SKAction.colorize(with: greenColor, colorBlendFactor: 0.7, duration: 0.3)
 
-                let sfx = SKAction.playSoundFileNamed("yee.mp3", waitForCompletion: false)
+                let sfx = SKAction.playSoundFileNamed("yee.wav", waitForCompletion: false)
                 
                 let zombifyContactedCat = SKAction.run() {
                     if let physicsBody = explosionRadius.physicsBody {
