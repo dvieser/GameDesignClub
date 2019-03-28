@@ -38,11 +38,12 @@ struct LevelDetail {
     let music: String
     let throwables: String
     let time: UInt
+    let pinPoint: CGPoint
 }
 
 class GameScene: SKScene {
     
-    var levelDetail: LevelDetail = LevelDetail(background: "", music: "", throwables: "", time: 0)
+    var levelDetail: LevelDetail = LevelDetail(background: "", music: "", throwables: "", time: 0, pinPoint: CGPoint.zero)
     let motionManager = CMMotionManager()
     
     var pinBeakerToZombieArm: SKPhysicsJointFixed?
@@ -158,7 +159,7 @@ class GameScene: SKScene {
         beakerBody.affectedByGravity = true
         beakerBody.mass = 1.0
         beakerBody.categoryBitMask = PhysicsType.beaker
-        beakerBody.collisionBitMask = PhysicsType.wall | PhysicsType.cat | PhysicsType.zombieCat
+        beakerBody.collisionBitMask = 0
 
         beaker.physicsBody = beakerBody
         addChild(beaker)
@@ -199,6 +200,7 @@ class GameScene: SKScene {
                 let toss = SKAction.run() {
                     self.physicsWorld.remove(self.pinBeakerToZombieArm!)
                     if let beakerBody = beaker.physicsBody {
+                        beakerBody.collisionBitMask = PhysicsType.wall | PhysicsType.cat | PhysicsType.zombieCat
                         beakerBody.applyImpulse(strength)
                         beakerBody.applyAngularImpulse(0.1125)
                     }
@@ -448,28 +450,28 @@ class GameScene: SKScene {
         
     }
     
-    func handlePan(recognizer:UIPanGestureRecognizer) {
-        if recognizer.state == UIGestureRecognizerState.began {
+    @objc func handlePan(recognizer:UIPanGestureRecognizer) {
+        if recognizer.state == UIGestureRecognizer.State.began {
             self.panStartLocation = recognizer.location(in: self.view)
         }
         
-        if recognizer.state == UIGestureRecognizerState.changed {
+        if recognizer.state == UIGestureRecognizer.State.changed {
             // the position of the drag has moved
 //            let translation = recognizer.translation(in: self.view)
 //            print(translation)
 //            updatePowerMeter(translation: translation)
         }
         
-        if recognizer.state == UIGestureRecognizerState.ended {
+        if recognizer.state == UIGestureRecognizer.State.ended {
             
             let current = recognizer.location(in: self.view)
             let velocity = recognizer.velocity(in: self.view)
             
             var vectorX = current.x - self.panStartLocation.x
             var vectorY = current.y - self.panStartLocation.y
-            let normal = max(fabs(vectorX), fabs(vectorY))
-            vectorX = fabs(vectorX / normal)
-            vectorY = fabs(vectorY / normal)
+            let normal = max(abs(vectorX), abs(vectorY))
+            vectorX = abs(vectorX / normal)
+            vectorY = abs(vectorY / normal)
 
             let power = CGVector(dx: vectorX * velocity.x, dy: vectorY * -velocity.y)
             tossBeaker(strength: power)
@@ -484,13 +486,15 @@ class GameScene: SKScene {
     
     func processUserMotion(forUpdate currentTime: CFTimeInterval) {
         if let player = childNode(withName: "player") as? SKSpriteNode {
+            
+        let orientation = UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft ? -1 : 1
             if let data = motionManager.accelerometerData {
                 if data.acceleration.y < -0.2  {
 //                    print("LEFT: \(data.acceleration.y)")
-                    player.physicsBody?.applyForce(CGVector(dx: -1500, dy: 0))
+                    player.physicsBody?.applyForce(CGVector(dx: -orientation * 1500, dy: 0))
                 } else if data.acceleration.y > 0.2 {
 //                    print("RIGHT: \(data.acceleration.y)")
-                    player.physicsBody?.applyForce(CGVector(dx: 1500, dy: 0))
+                    player.physicsBody?.applyForce(CGVector(dx: orientation * 1500, dy: 0))
                 } else {
                     player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                 }

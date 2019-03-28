@@ -32,7 +32,7 @@ class GameOverScene: SKScene {
       winNode.anchorPoint = CGPoint.zero
       addChild(winNode)
     } else {
-      let loseNode = SKSpriteNode(imageNamed: "play-again")
+      let loseNode = SKSpriteNode(imageNamed: "YouLose")
       loseNode.anchorPoint = CGPoint.zero
       addChild(loseNode)
     }
@@ -50,7 +50,7 @@ class GameOverScene: SKScene {
     //run(SKAction.sequence([wait, block]))
   }
     
-    func handleTap(recognizer:UIPanGestureRecognizer) {
+    @objc func handleTap(recognizer:UIPanGestureRecognizer) {
         if let myScene = GameScene(fileNamed: "LevelSelectScene") {
             myScene.scaleMode = self.scaleMode
             self.view?.presentScene(myScene)
