@@ -22,13 +22,13 @@ class LevelSelectScene: SKScene {
 
         if level1Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "Level1") {
-                myScene.levelDetail = LevelDetail(background: "", music: "background1", throwables: "food", time: 50, pinPoint: CGPoint.zero)
+                myScene.levelDetail = LevelDetail(background: "", music: "background1", throwables: "food", time: 99, pinPoint: CGPoint.zero)
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
         } else if level2Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "Level2") {
-                myScene.levelDetail = LevelDetail(background: "", music: "background2", throwables: "furniture", time: 50, pinPoint: CGPoint.zero)
+                myScene.levelDetail = LevelDetail(background: "", music: "background2", throwables: "furniture", time: 60, pinPoint: CGPoint.zero)
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
