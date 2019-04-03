@@ -28,31 +28,31 @@ class LevelSelectScene: SKScene {
             }
         } else if level2Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "Level2") {
-                myScene.levelDetail = LevelDetail(background: "", music: "background2", throwables: "furniture", time: 60, pinPoint: CGPoint.zero)
+                myScene.levelDetail = LevelDetail(background: "", music: "background2", throwables: "furniture", time: 70, pinPoint: CGPoint.zero)
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
         } else if level3Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "Level3") {
-                myScene.levelDetail = LevelDetail(background: "", music: "background3", throwables: "furniture", time: 50, pinPoint: CGPoint.zero)
+                myScene.levelDetail = LevelDetail(background: "", music: "background3", throwables: "furniture", time: 60, pinPoint: CGPoint.zero)
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
         } else if level4Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "Level4") {
-                myScene.levelDetail = LevelDetail(background: "", music: "background4", throwables: "food", time: 50, pinPoint: CGPoint.zero)
+                myScene.levelDetail = LevelDetail(background: "", music: "background4", throwables: "food", time: 60, pinPoint: CGPoint.zero)
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
         } else if level5Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "Level5") {
-                myScene.levelDetail = LevelDetail(background: "", music: "background5", throwables: "food", time: 50, pinPoint: CGPoint.zero)
+                myScene.levelDetail = LevelDetail(background: "", music: "background5", throwables: "food", time: 60, pinPoint: CGPoint.zero)
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
         } else if level6Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "Level6") {
-                myScene.levelDetail = LevelDetail(background: "", music: "background6", throwables: "food", time: 50, pinPoint: CGPoint(x:1, y:0))
+                myScene.levelDetail = LevelDetail(background: "", music: "background6", throwables: "food", time: 60, pinPoint: CGPoint(x:1, y:0))
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
