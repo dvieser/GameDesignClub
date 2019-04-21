@@ -19,6 +19,7 @@ class LevelSelectScene: SKScene {
         let level4Button: SKNode = childNode(withName: "Level4Button")!
         let level5Button: SKNode = childNode(withName: "Level5Button")!
         let level6Button: SKNode = childNode(withName: "Level6Button")!
+        let aboutButton: SKNode = childNode(withName: "aboutButton")!
 
         if level1Button.contains(touch.location(in: self)) {
             if let myScene = GameScene(fileNamed: "Level1") {
@@ -56,6 +57,8 @@ class LevelSelectScene: SKScene {
                 myScene.scaleMode = self.scaleMode
                 self.view?.presentScene(myScene)
             }
+        } else if aboutButton.contains(touch.location(in: self)) {
+            UIApplication.shared.open(URL(string: "https://www.hayscisd.net/Page/5419")!)
         }
     }
 }
