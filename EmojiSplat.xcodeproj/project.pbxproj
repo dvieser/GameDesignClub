@@ -21,6 +21,7 @@
 		D30A184D1D2C3ADC0063F4E8 /* Level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = D30A184C1D2C3ADC0063F4E8 /* Level4.sks */; };
 		EE123B311EC61F1500FD9ACE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */; };
 		EE123B321EC61F1500FD9ACE /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE123B301EC61F1500FD9ACE /* iTunesArtwork@2x.png */; };
+		EE1D91C42279F8E2002196DE /* 1 How to Play Emoji Splat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EE1D91C32279F8E2002196DE /* 1 How to Play Emoji Splat.mp4 */; };
 		EE27D965203F7EA000AFE5B6 /* background1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE27D963203F7EA000AFE5B6 /* background1.mp3 */; };
 		EE27D966203F7EA000AFE5B6 /* yipee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE27D964203F7EA000AFE5B6 /* yipee.mp3 */; };
 		EE29AACC22039FB40054747D /* yee.wav in Resources */ = {isa = PBXBuildFile; fileRef = EE29AACB22039FB40054747D /* yee.wav */; };
@@ -57,6 +58,7 @@
 		D30A184C1D2C3ADC0063F4E8 /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level4.sks; sourceTree = "<group>"; };
 		EE123B2F1EC61F1500FD9ACE /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		EE123B301EC61F1500FD9ACE /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		EE1D91C32279F8E2002196DE /* 1 How to Play Emoji Splat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1 How to Play Emoji Splat.mp4"; sourceTree = "<group>"; };
 		EE27D963203F7EA000AFE5B6 /* background1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background1.mp3; sourceTree = "<group>"; };
 		EE27D964203F7EA000AFE5B6 /* yipee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yipee.mp3; sourceTree = "<group>"; };
 		EE29AACB22039FB40054747D /* yee.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = yee.wav; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				D30A18451D2C3A620063F4E8 /* GameOverScene.sks */,
 				D30A18461D2C3A620063F4E8 /* GameOverScene.swift */,
 				D30A18341D2C3A0E0063F4E8 /* Main.storyboard */,
+				EE1D91C32279F8E2002196DE /* 1 How to Play Emoji Splat.mp4 */,
 				EEE789802089360F00661C81 /* furniture.bundle */,
 				EEE7897E208935B700661C81 /* food.bundle */,
 				EE27D962203F7E8500AFE5B6 /* sounds */,
@@ -237,6 +240,7 @@
 				EE123B311EC61F1500FD9ACE /* iTunesArtwork.png in Resources */,
 				D30A18381D2C3A0E0063F4E8 /* Assets.xcassets in Resources */,
 				EE29AACC22039FB40054747D /* yee.wav in Resources */,
+				EE1D91C42279F8E2002196DE /* 1 How to Play Emoji Splat.mp4 in Resources */,
 				D30A18361D2C3A0E0063F4E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
